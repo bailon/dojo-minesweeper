@@ -1,0 +1,21 @@
+.break { 
+	float:left; clear : both;
+}
+
+.field-area 	{
+	float: left; height: 40px; width: 40px; 
+	border-left: 2px solid red; border-top: 2px solid red; 
+	background-color: #ccc;
+}
+
+.last-row { 
+	border-bottom: solid 2px red;
+}
+
+.last-col {
+	border-right: solid 2px red;
+}
+
+.field-clicked {
+	background: #0C0;
+}

@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="mines.css" type="text/css" />
+	</head>
+
+	<body>
+		<div id="result">
+		</div>
+		
+		<script type="text/javascript" src="mines.js"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				var test = new Mines();
+
+				test.createField(10, 10).plantBombs(10).write('result');
+			}
+		</script>
+	</body>
+</html>
