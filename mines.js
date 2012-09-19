@@ -12,7 +12,8 @@ var Mines = function () {
 		bombs = [],
 		bombsNeighbors = [],
 		fieldX = 0,
-		fieldY = 0;
+		fieldY = 0,
+		symbol	= { bomb: '*' };
 		
 	get = function (param) {
 		try {
@@ -64,15 +65,32 @@ var Mines = function () {
 		return elem;
 	};
 	
-	setNeighbors = function(x,y){
-	var posX, posY;
+	getNeighbor = function (posX, posY) {
+		isValidXAxis = function () {
+			return true;
+		},
+
+		isValidYAxis = function (posY) {
+			return true;
+		},
+
+		isBomb =  function () {
+			return (field[posX][posY].value == symbol.bomb);
+		}
+
+		return this;
+	};
+
+	setNeighbors = function (x, y) {
+	var posX, posY, neighbor = null;
 	
 		for (var i = -1; i <= 1; i++) {
 			posX = x + i;
 			for (var j = -1; j <= 1; j++) {
 				posY = y + j;
-				
-				if((posX < fieldX && posX >= 0) && (posY < fieldY && posY >= 0) && field[posX][posY].value != '*') {
+				neighbor = getNeighbor(posX, posY);
+
+				if((posX < fieldX && posX >= 0) && (posY < fieldY && posY >= 0) && !neighbor.isBomb()) {
 					field[posX][posY].value++
 			
 				}
@@ -125,7 +143,7 @@ var Mines = function () {
 	checkField = function(field, elem, coordinates) {
 		switch (field) {
 			case '*' :
-				write('result', true);
+				write('minefield', true);
 				alert('BOOM');
 				break;
 			case 0 :
