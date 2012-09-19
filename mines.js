@@ -1,6 +1,6 @@
 var cl = function() {
-	if(console) {
-		for(var i in arguments) {
+	if (console) {
+		for (var i in arguments) {
 			console.log(arguments[i]);
 		}
 	}
@@ -14,8 +14,13 @@ var Mines = function () {
 		fieldX = 0,
 		fieldY = 0;
 		
-	get = function(param) {
-		return eval(param);
+	get = function (param) {
+		try {
+			var value = eval(param);
+			return eval(param);
+		} catch (e) {
+			return false;
+		}
 	},
 
 	
