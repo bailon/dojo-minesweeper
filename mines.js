@@ -14,7 +14,7 @@ var Mines = function () {
 		fieldX = 0,
 		fieldY = 0;
 		
-	getParameter = function(param) {
+	get = function(param) {
 		return eval(param);
 	},
 
@@ -185,9 +185,9 @@ var Mines = function () {
 	
 	return {
 		createField	: createField,
-		write			: write,
+		write		: write,
 		plantBombs	: plantBombs,
-		field			: field,
-		getParameter: getParameter
+		field		: field,
+		get 		: get
 	};
 };
