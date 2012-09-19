@@ -1,18 +1,19 @@
 <html>
 	<head>
+		<title>Minesweeper JS</title>
 		<link rel="stylesheet" href="mines.css" type="text/css" />
 	</head>
 
 	<body>
-		<div id="result">
-		</div>
+		<div id="timer"></div>
+		<div id="minefield"></div>
 		
 		<script type="text/javascript" src="mines.js"></script>
 		<script type="text/javascript">
-			window.onload = function() {
-				var test = new Mines();
+			window.onload = function () {
+				var minesweeper = new Mines();
 
-				test.createField(10, 10).plantBombs(10).write('result');
+				minesweeper.createField(10, 10).plantBombs(10).write('minefield');
 			}
 		</script>
 	</body>
